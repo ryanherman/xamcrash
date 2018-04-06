@@ -12,6 +12,16 @@ namespace collectioncrash
 		public MainPage()
 		{
 			InitializeComponent();
-		}
+		    TestingList.ItemsSource = App.Testing;
+		    TestingList.BindingContext = App.Testing;
+
+		    TestingList.RefreshCommand = new Command(async () =>
+		    {
+		        TestingList.IsRefreshing = true;
+		        App.ResetList();
+		        TestingList.IsRefreshing = false;
+
+		    });
+        }
 	}
 }

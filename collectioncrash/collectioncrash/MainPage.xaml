@@ -4,8 +4,25 @@
              xmlns:local="clr-namespace:collectioncrash"
              x:Class="collectioncrash.MainPage">
 
-	<Label Text="Welcome to Xamarin.Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+    <ListView x:Name="TestingList" IsPullToRefreshEnabled="True" IsGroupingEnabled="True">
+        <ListView.GroupHeaderTemplate>
+            <DataTemplate>
+                <ViewCell Height="283">
+                    <StackLayout Spacing="0" Padding="10" BackgroundColor="Blue" x:Name="MusicStack">
+                        <StackLayout Padding="5" BackgroundColor="White" HeightRequest="30">
+                            <Label Text="{Binding Key, StringFormat='{0} Music'}" FontSize="18" TextColor="#1f1f1f" HorizontalOptions="Start" HorizontalTextAlignment="Start"/>
+                        </StackLayout>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.GroupHeaderTemplate>
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Label Text="{Binding Info}" TextColor="Black"/>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 
 </ContentPage>
